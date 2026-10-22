@@ -1,0 +1,221 @@
+/* ==========================================================
+   1. TOKENS
+   ========================================================== */
+:root {
+  --paper: #101114;
+  --paper-alt: #16171b;
+  --card: #1a1b20;
+  --ink: #ecebe6;
+  --muted: #9b9ba5;
+  --line: #2b2d34;
+  --night: #09090b;
+  --night-card: #1a1b20;
+  --night-text: #ecebe6;
+  --night-muted: #9b9ba5;
+  --accent: #9fb0ff;
+  --accent-soft: #9fb0ff;
+  --radius: 14px;
+  --shadow: 0 8px 28px rgba(0, 0, 0, .35);
+  --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================================
+   2. BASE
+   ========================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body { margin: 0; font-family: var(--font); background: var(--paper); color: var(--ink); line-height: 1.65; font-size: 1.0625rem; }
+h1, h2, h3 { line-height: 1.1; letter-spacing: -.02em; margin: 0 0 .6rem; }
+h3 { font-size: 1.2rem; letter-spacing: -.01em; line-height: 1.25; }
+p { margin: 0 0 1rem; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+.skip-link { position: absolute; left: 1rem; top: -4rem; background: var(--ink); color: var(--paper); padding: .6rem 1rem; border-radius: 8px; z-index: 100; transition: top .2s; }
+.skip-link:focus { top: 1rem; }
+
+/* ==========================================================
+   3. HEADER / NAV
+   ========================================================== */
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(16, 17, 20, .94); border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .6rem; }
+.brand { font-weight: 800; letter-spacing: .04em; color: var(--ink); text-decoration: none; padding: .3rem .6rem; border: 2px solid var(--ink); border-radius: 10px; }
+.nav-list { display: flex; flex-wrap: wrap; gap: .1rem .25rem; justify-content: flex-end; }
+.nav-list a { display: block; padding: .45rem .7rem; color: var(--ink); text-decoration: none; border-radius: 999px; font-size: .95rem; transition: background .2s, color .2s; }
+.nav-list a:hover { background: var(--ink); color: var(--paper); }
+
+/* ==========================================================
+   4. SECTIONS
+   ========================================================== */
+.section { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.section.alt { background: var(--paper-alt); }
+.section.dark { background: var(--night); color: var(--night-text); }
+.dark a { color: var(--accent-soft); }
+.section-title { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 800; }
+.big-title { font-size: clamp(2.4rem, 7vw, 5rem); font-weight: 800; max-width: 14ch; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 2rem 4rem; align-items: start; }
+.split .section-title { position: sticky; top: 6rem; }
+.lead { font-size: 1.2rem; max-width: 60ch; }
+.dark .lead, .dark p { color: var(--night-muted); }
+.dark h2, .dark h3, .dark time { color: var(--night-text); }
+
+/* ==========================================================
+   5. BUTTONS & LABELS
+   ========================================================== */
+.btn { display: inline-block; padding: .85rem 1.5rem; border-radius: 999px; font-weight: 700; text-decoration: none; min-height: 44px; transition: transform .2s, background .2s, color .2s; }
+.btn-primary { background: var(--accent); color: #101114; }
+.btn-primary:hover { background: #fff; }
+.dark .btn-primary { background: var(--accent-soft); color: var(--night); }
+.dark .btn-primary:hover { background: #fff; }
+.btn-outline { border: 1px solid var(--line); color: var(--ink); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.btn-link { color: var(--ink); padding-inline: .5rem; text-decoration: underline; text-underline-offset: 5px; }
+.btn-lg { font-size: 1.15rem; margin: 1.5rem 0 2rem; }
+
+/* Smaller "Visit Campus Finds" button */
+.btn-campus { font-size: .85rem; padding: .5rem 1rem; min-height: 36px; margin: 1.25rem 0 1rem; }
+
+.badge { display: inline-block; font-size: .85rem; font-weight: 700; color: var(--accent); background: rgba(159, 176, 255, .12); padding: .2rem .7rem; border-radius: 999px; margin-bottom: .8rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chips li { padding: .4rem .9rem; border: 1px solid var(--line); background: var(--paper); border-radius: 999px; font-size: .95rem; }
+.chips.small li { font-size: .82rem; padding: .2rem .7rem; }
+.note { color: var(--muted); font-style: italic; margin: 1rem 0 0; }
+
+/* ==========================================================
+   6. HERO
+   ========================================================== */
+.hero { padding-top: clamp(3rem, 7vw, 5.5rem); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 5.2rem); font-weight: 800; }
+.status { display: inline-flex; align-items: center; gap: .6rem; font-size: .92rem; color: var(--muted); border: 1px solid var(--line); background: var(--card); padding: .35rem .9rem; border-radius: 999px; }
+.status-dot { width: .6rem; height: .6rem; border-radius: 50%; background: var(--accent); animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 6px rgba(159, 176, 255, .25); } }
+.role { font-size: 1.35rem; font-weight: 700; color: var(--accent); }
+.where { color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; margin: 1.5rem 0; }
+.social-list { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
+.social-list a { color: var(--ink); font-weight: 600; }
+.portrait { margin: 0; max-width: 440px; width: 100%; justify-self: end; border-radius: 22px; background: #fff; color: #1b1b1f; box-shadow: var(--shadow); overflow: hidden; }
+.portrait img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
+.portrait figcaption { padding: .7rem 1.1rem; font-size: .92rem; color: #5d5d66; border-top: 1px solid #e4e0d8; }
+
+/* ==========================================================
+   7. CARDS, GRIDS, TIMELINE
+   ========================================================== */
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); box-shadow: var(--shadow); transition: transform .25s, box-shadow .25s; }
+.card:hover { border-color: #3a3d46; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.plain li { padding: .5rem 0; border-bottom: 1px solid var(--line); }
+.plain li:last-child { border-bottom: 0; }
+
+.timeline { border-left: 2px solid rgba(236, 234, 228, .22); margin-left: .5rem; }
+.timeline-item { position: relative; padding: 0 0 2rem 1.75rem; }
+.timeline-item::before { content: ""; position: absolute; left: -.55rem; top: .35rem; width: 1rem; height: 1rem; border-radius: 50%; background: var(--night); border: 3px solid var(--accent-soft); }
+.timeline time { display: block; font-size: .9rem; color: var(--accent-soft); font-weight: 600; margin-bottom: .2rem; }
+.org { color: var(--accent-soft); font-weight: 600; margin-bottom: .3rem; }
+
+/* ==========================================================
+   8. PROJECTS
+   ========================================================== */
+.projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.project { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.project.featured { grid-column: 1 / -1; flex-direction: row; }
+
+/* Smaller Campus Finds image: lower flex = narrower, max-height = shorter */
+.project.featured img { flex: 0.7; min-width: 0; height: auto; max-height: 320px; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); }
+
+.project.featured .project-body { flex: 1; align-self: center; }
+.project-body { padding: clamp(1.25rem, 3vw, 2rem); }
+.project img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+
+/* ==========================================================
+   9. ACHIEVEMENTS
+   ========================================================== */
+.milestone { background: var(--night); border: 1px solid var(--line); color: var(--night-text); border-radius: var(--radius); padding: clamp(1.5rem, 4vw, 2.5rem); margin: 2rem 0 1.5rem; border-left: 8px solid var(--accent-soft); }
+.milestone .badge { background: rgba(159, 176, 255, .16); color: var(--accent-soft); }
+.milestone h3 { font-size: clamp(1.5rem, 3.5vw, 2.25rem); margin: 0; }
+
+/* ==========================================================
+   10. RESUME
+   ========================================================== */
+.resume { margin-top: 2rem; max-width: 860px; }
+.resume dl { margin: 0 0 1.5rem; }
+.resume dl > div { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.resume dt { font-weight: 700; }
+.resume dd { margin: 0; color: var(--muted); }
+
+/* ==========================================================
+   11. CONTACT & FOOTER
+   ========================================================== */
+.contact-list { font-style: normal; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .25rem 2rem; max-width: 640px; }
+.contact-list p { margin: 0; padding: .5rem 0; border-bottom: 1px solid rgba(236, 234, 228, .15); }
+.site-footer { background: var(--night); border-top: 1px solid var(--line); color: var(--night-muted); padding-top: 3rem; font-size: .95rem; }
+.site-footer a { color: var(--night-text); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+.footer-name { color: var(--night-text); font-weight: 700; font-size: 1.15rem; margin-bottom: .3rem; }
+.footer-links li { padding: .15rem 0; }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1rem; border-top: 1px solid rgba(236, 234, 228, .15); margin-top: 2rem; padding-block: 1.25rem; }
+.footer-bottom p { margin: 0; }
+
+/* ==========================================================
+   12. SCROLL EFFECTS (CSS only, progressive enhancement)
+   Browsers without scroll-driven animation simply show the page as is.
+   ========================================================== */
+@keyframes fade-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes grow-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes ease-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes photo-drift { from { transform: scale(1); } to { transform: scale(1.06); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* One gentle entrance on page load */
+  .hero-text, .portrait { animation: ease-in .8s ease-out both; }
+  .portrait { animation-delay: .15s; }
+
+  @supports (animation-timeline: view()) {
+    /* Thin progress line under the header */
+    .site-header::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); transform-origin: left; animation: grow-x linear both; animation-timeline: scroll(root); }
+
+    /* Content fades in softly as it enters the viewport */
+    .section-title, .big-title, .prose, .card, .timeline-item, .milestone, .contact-list {
+      animation: fade-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+
+    /* Photo zooms in very slightly while scrolling past the hero */
+    .portrait img { animation: photo-drift linear both; animation-timeline: scroll(root); animation-range: 0 90vh; }
+  }
+}
+
+/* Small hover polish for navigation */
+.nav-list a, .footer-links a { transition: background .2s, color .2s; }
+
+/* ==========================================================
+   13. RESPONSIVE
+   ========================================================== */
+@media (max-width: 900px) {
+  .split, .hero-grid, .footer-grid { grid-template-columns: 1fr; }
+  .split .section-title { position: static; }
+  .portrait { justify-self: start; max-width: 340px; }
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project.featured { flex-direction: column; }
+  .project.featured img { flex: none; max-height: 260px; aspect-ratio: 16 / 9; border-right: 0; border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  body { font-size: 1rem; }
+  .header-inner { flex-direction: column; align-items: flex-start; }
+  .nav-list { justify-content: flex-start; }
+  .grid-2, .grid-3, .projects, .contact-list { grid-template-columns: 1fr; }
+  .resume dl > div { grid-template-columns: 1fr; gap: .2rem; }
+  .btn { width: 100%; text-align: center; }
+  .btn-link { width: auto; }
+  .contact-list p { overflow-wrap: anywhere; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
